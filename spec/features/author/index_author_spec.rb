@@ -31,4 +31,11 @@ describe "Index authors page", type: :feature do
 		visit authors_path
 		expect(page).to have_css("a[data-method='delete'][href='/authors/#{@alan.id}']")
 	end 
+
+	it "should delete author when clicking on delete" do
+		@alan = FactoryBot.create :author
+		visit authors_path
+		find("a[data-method='delete'][href='/authors/#{@alan.id}']").click
+		expect(Author.exists?(@alan.id)).to be_falsey
+	end 
 end
