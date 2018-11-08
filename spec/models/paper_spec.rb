@@ -16,4 +16,9 @@ describe "New paper page", type: :model do
 		expect(@paper).to_not be_valid
 	end
 
+	it "should validate the year input" do
+		@paper = Paper.new(title: 'computing machinery and intelligence', venue:'mind 49: 433-460')
+		expect(@paper).to_not be_valid
+	end
+
 end
