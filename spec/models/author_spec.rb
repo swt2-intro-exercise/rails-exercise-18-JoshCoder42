@@ -10,4 +10,8 @@ describe "New author page", type: :model do
 		expect(author.name).to eq('Alan Turing')
 	end
 
+	it "should validate the input" do
+		@author = Author.new(first_name:'random', last_name:'', homepage:'http://random.page')
+		expect(@author).to_not be_valid
+	end
 end
