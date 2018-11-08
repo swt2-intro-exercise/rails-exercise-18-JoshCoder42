@@ -13,4 +13,9 @@ describe "Show author page", type: :feature do
 		expect(page).to have_link href:(@alan.homepage)
 	end
 
+	it "should contain a link to the individual authors edit page" do
+		visit author_path(@alan)
+		expect(page).to have_link href:(edit_author_path(@alan))
+	end
+
 end
