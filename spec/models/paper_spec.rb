@@ -6,8 +6,13 @@ end
 
 describe "New paper page", type: :model do
 
-	it "should validate the input" do
+	it "should validate the title input" do
 		@paper = Paper.new(venue:'mind 49: 433-460', year:2018)
+		expect(@paper).to_not be_valid
+	end
+
+	it "should validate the venue input" do
+		@paper = Paper.new(title: 'computing machinery and intelligence', year:2018)
 		expect(@paper).to_not be_valid
 	end
 
