@@ -18,6 +18,7 @@ describe "Index authors page", type: :feature do
 		expect(page).to have_text(@alan.last_name)
 		expect(page).to have_text(@alan.homepage)
 		expect(page).to have_link href:(author_path(@alan))
+		expect(page).to have_link href:(edit_author_path(@alan))
 	end
 
 end
