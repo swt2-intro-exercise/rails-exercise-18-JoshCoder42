@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :papers
   #get '/authors' => 'authors#index'
   #get '/authors/new' => 'authors#new'
 
