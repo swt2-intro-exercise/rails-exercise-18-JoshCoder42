@@ -4,6 +4,8 @@ class PapersController < ApplicationController
   # GET /papers
   def index
     @papers = Paper.all
+
+    @papers = @papers.year(params[:year]) if params[:year].present?
   end
 
   # GET /papers/1
@@ -34,7 +36,7 @@ class PapersController < ApplicationController
   # PATCH/PUT /papers/1
   def update
     @paper = Paper.find(params[:id])
-    
+
     if @paper.update(paper_params)
       redirect_to @paper, notice: 'Paper was successfully updated.'
     else
