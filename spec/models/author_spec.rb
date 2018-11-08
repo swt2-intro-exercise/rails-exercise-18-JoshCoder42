@@ -15,3 +15,12 @@ describe "New author page", type: :model do
 		expect(@author).to_not be_valid
 	end
 end
+
+describe Paper, type: :model do
+
+  it "should belong to paper" do
+    author = Author.new
+    expect(author.respond_to? :papers).to be true
+  end
+  
+end
