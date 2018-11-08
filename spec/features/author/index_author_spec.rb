@@ -2,24 +2,22 @@ require 'rails_helper'
 
 describe "Index authors page", type: :feature do
 
-	before :all do
-        @alan = FactoryBot.create :author
-	end
-
 	it "should render withour error" do
-		visit index_author_path
+		visit authors_path
 	end
 
 	it "should have a link to new author" do
-		visit index_author_path
+		visit authors_path
 		expect(page).to have_link href: new_author_path 
 	end
 
 	it "should contain information about an existing author" do
-		visit index_author_path
+		@alan = FactoryBot.create :author
+		visit authors_path
 		expect(page).to have_text(@alan.first_name) 
 		expect(page).to have_text(@alan.last_name)
-		expect(page).to have_link href: @alan.homepage
+		expect(page).to have_text(@alan.homepage)
+		expect(page).to have_link href:(author_path(@alan))
 	end
 
 end
