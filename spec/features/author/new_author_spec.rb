@@ -25,4 +25,11 @@ describe "New author page", type: :feature do
  	expect(Author.exists?({first_name: 'Alan', last_name: 'Turing', homepage: 'http://wikipedia.org/Alan_Turing'})).not_to be_falsey
  end
 
+ it "should show an error if last_name was left blank" do
+ 	visit new_author_path
+ 	find('input[type="submit"]').click
+
+ 	expect(page).to have_text(/error/i)
+ end
+
 end
