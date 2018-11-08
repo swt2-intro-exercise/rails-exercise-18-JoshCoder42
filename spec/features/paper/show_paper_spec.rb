@@ -6,7 +6,7 @@ describe "Show paper page", type: :feature do
         @paper = FactoryBot.create(:paper)
         visit paper_path(@paper)
         
-        @paper.author.each do |author|
+        @paper.authors.each do |author|
             expect(page).to have_text author.name
         end
     end
